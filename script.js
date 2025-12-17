@@ -129,9 +129,9 @@ function renderBattle(data1, cfg1, data2, cfg2) {
     }
 
     // 4. Render Category Rows
-    renderCategory('rowEasy', pts1.easy, pts2.easy, data1.easySolved, data2.easySolved);
-    renderCategory('rowMed', pts1.med, pts2.med, data1.mediumSolved, data2.mediumSolved);
-    renderCategory('rowHard', pts1.hard, pts2.hard, data1.hardSolved, data2.hardSolved);
+    renderCategory('rowEasy', pts1.easy, pts2.easy, data1.easySolved, data2.easySolved, pts1.deltaE, pts2.deltaE);
+    renderCategory('rowMed', pts1.med, pts2.med, data1.mediumSolved, data2.mediumSolved, pts1.deltaM, pts2.deltaM);
+    renderCategory('rowHard', pts1.hard, pts2.hard, data1.hardSolved, data2.hardSolved, pts1.deltaH, pts2.deltaH);
 
     // 5. Render Extra Stats
     document.getElementById('p1Rank').textContent = data1.ranking.toLocaleString();
@@ -152,6 +152,9 @@ function calcPoints(data, base) {
     const deltaH = data.hardSolved - base.hard;
 
     return {
+        deltaE: deltaE,
+        deltaM: deltaM,
+        deltaH: deltaH,
         easy: deltaE * 10,
         med: deltaM * 20,
         hard: deltaH * 50,
@@ -159,20 +162,20 @@ function calcPoints(data, base) {
     };
 }
 
-function renderCategory(rowId, p1Score, p2Score, p1Raw, p2Raw) {
+function renderCategory(rowId, p1Score, p2Score, p1Raw, p2Raw, p1Delta, p2Delta) {
     const row = document.getElementById(rowId);
     const el1 = row.querySelector('.cat-p1');
     const el2 = row.querySelector('.cat-p2');
 
-    // Use innerHTML to show Points + Raw Solved
+    // Use innerHTML to show Points + Raw Solved + Delta
     el1.innerHTML = `
         <div class="score-main">${p1Score.toLocaleString()}</div>
-        <div class="score-sub">${p1Raw.toLocaleString()} Solved</div>
+        <div class="score-sub">${p1Delta} Solved</div>
     `;
 
     el2.innerHTML = `
         <div class="score-main">${p2Score.toLocaleString()}</div>
-        <div class="score-sub">${p2Raw.toLocaleString()} Solved</div>
+        <div class="score-sub">${p2Delta} Solved</div>
     `;
 
     if (p1Score > p2Score) {
