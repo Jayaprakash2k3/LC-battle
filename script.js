@@ -91,9 +91,20 @@ async function initBattlePage() {
 }
 
 async function fetchUser(username) {
-    const response = await fetch(`https://leetcode-stats-api.herokuapp.com/${username}`);
+    const response = await fetch(`https://leetcode-api-faisalshohag.vercel.app/${username}`);
     if (!response.ok) throw new Error("Network error");
-    return await response.json();
+    const data = await response.json();
+    
+    if (data.errors) throw new Error("User not found");
+    
+    // Calculate acceptanceRate if the API lacks it natively but includes raw stats
+    if (data.acceptanceRate === undefined && data.matchedUserStats) {
+        const ac = data.matchedUserStats.acSubmissionNum.find(x => x.difficulty === 'All')?.submissions || 0;
+        const total = data.matchedUserStats.totalSubmissionNum.find(x => x.difficulty === 'All')?.submissions || 0;
+        data.acceptanceRate = total > 0 ? ((ac / total) * 100).toFixed(2) : 0;
+    }
+    
+    return data;
 }
 
 function renderBattle(data1, cfg1, data2, cfg2) {
