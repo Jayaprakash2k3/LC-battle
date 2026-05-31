@@ -26,68 +26,8 @@
         </header>
 
         <form id="setupForm" class="setup-form glass-card">
-            <div class="players-config">
-
-                <!-- Player 1 Config -->
-                <div class="player-col p1-col">
-                    <div class="col-header">
-                        <i class="fa-solid fa-user-ninja"></i> Player 1
-                    </div>
-
-                    <div class="input-group">
-                        <label>Username</label>
-                        <input type="text" id="p1User" placeholder="Player 1 Username" required>
-                    </div>
-
-                    <div class="handicap-box">
-                        <div class="h-title">Baseline</div>
-                        <div class="h-input-row">
-                            <label class="lbl-easy">Easy</label>
-                            <input type="number" id="p1Easy" value="0" min="0">
-                        </div>
-                        <div class="h-input-row">
-                            <label class="lbl-med">Medium</label>
-                            <input type="number" id="p1Med" value="0" min="0">
-                        </div>
-                        <div class="h-input-row">
-                            <label class="lbl-hard">Hard</label>
-                            <input type="number" id="p1Hard" value="0" min="0">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="vs-divider-vertical">
-                    <span>VS</span>
-                </div>
-
-                <!-- Player 2 Config -->
-                <div class="player-col p2-col">
-                    <div class="col-header">
-                        <i class="fa-solid fa-user-astronaut"></i> Player 2
-                    </div>
-
-                    <div class="input-group">
-                        <label>Username</label>
-                        <input type="text" id="p2User" placeholder="Player 2 Username" required>
-                    </div>
-
-                    <div class="handicap-box">
-                        <div class="h-title">Baseline</div>
-                        <div class="h-input-row">
-                            <label class="lbl-easy">Easy</label>
-                            <input type="number" id="p2Easy" value="0" min="0">
-                        </div>
-                        <div class="h-input-row">
-                            <label class="lbl-med">Medium</label>
-                            <input type="number" id="p2Med" value="0" min="0">
-                        </div>
-                        <div class="h-input-row">
-                            <label class="lbl-hard">Hard</label>
-                            <input type="number" id="p2Hard" value="0" min="0">
-                        </div>
-                    </div>
-                </div>
-
+            <div id="playersContainer" class="players-config">
+                <!-- Dynamically populated via JS -->
             </div>
 
             <div class="form-actions">

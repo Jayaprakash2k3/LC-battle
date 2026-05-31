@@ -29,90 +29,26 @@
         <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> New Battle</a>
 
         <!-- Top Section: Final Scores & Winner -->
-        <section class="hero-scores glass-card">
-
-            <div class="hero-player p1-hero" id="p1Hero">
-                <div class="crown-icon hidden"><i class="fa-solid fa-crown"></i></div>
-                <h2 id="p1Name">Player 1</h2>
-                <div class="hero-points" id="p1Total">0</div>
-                <div class="sub-label">TOTAL POINTS</div>
-            </div>
-
-            <div class="hero-vs">
-                <div class="vs-circle">VS</div>
-            </div>
-
-            <div class="hero-player p2-hero" id="p2Hero">
-                <div class="crown-icon hidden"><i class="fa-solid fa-crown"></i></div>
-                <h2 id="p2Name">Player 2</h2>
-                <div class="hero-points" id="p2Total">0</div>
-                <div class="sub-label">TOTAL POINTS</div>
-            </div>
-
+        <section class="hero-scores glass-card" id="heroScores">
+            <!-- Dynamically populated via JS -->
         </section>
 
-        <div class="verdict-banner glass-card" id="verdictBanner">
-            DRAW
-        </div>
+
 
         <!-- Middle Section: Category Battle -->
-        <section class="category-battle glass-card">
+        <section class="category-battle glass-card" id="categoryBattle">
             <h3>Category Breakdown</h3>
-
-            <!-- Easy Row -->
-            <div class="cat-row" id="rowEasy">
-                <div class="cat-p1 p1-val">0</div>
-                <div class="cat-label easy-bg">
-                    <span>EASY</span>
-                    <small>10 pts</small>
-                </div>
-                <div class="cat-p2 p2-val">0</div>
-            </div>
-
-            <!-- Medium Row -->
-            <div class="cat-row" id="rowMed">
-                <div class="cat-p1 p1-val">0</div>
-                <div class="cat-label med-bg">
-                    <span>MEDIUM</span>
-                    <small>20 pts</small>
-                </div>
-                <div class="cat-p2 p2-val">0</div>
-            </div>
-
-            <!-- Hard Row -->
-            <div class="cat-row" id="rowHard">
-                <div class="cat-p1 p1-val">0</div>
-                <div class="cat-label hard-bg">
-                    <span>HARD</span>
-                    <small>50 pts</small>
-                </div>
-                <div class="cat-p2 p2-val">0</div>
+            <div id="categoryContent">
+                <!-- Dynamically populated via JS -->
             </div>
         </section>
 
         <!-- Bottom Section: Extra Stats -->
         <section class="extra-stats glass-card">
             <h3>Combat Stats</h3>
-            <div class="stats-table">
-                <div class="stat-header">
-                    <span>Metric</span>
-                    <span id="p1StatName">P1</span>
-                    <span id="p2StatName">P2</span>
-                </div>
-                <div class="stat-line">
-                    <span class="metric-name"><i class="fa-solid fa-trophy"></i> Global Rank</span>
-                    <span id="p1Rank">-</span>
-                    <span id="p2Rank">-</span>
-                </div>
-                <div class="stat-line">
-                    <span class="metric-name"><i class="fa-solid fa-check-double"></i> Acceptance</span>
-                    <span id="p1Acc">-</span>
-                    <span id="p2Acc">-</span>
-                </div>
-                <div class="stat-line">
-                    <span class="metric-name"><i class="fa-solid fa-list-ol"></i> Total Solved (Raw)</span>
-                    <span id="p1RawTotal">-</span>
-                    <span id="p2RawTotal">-</span>
+            <div class="stats-table-wrapper">
+                <div class="stats-table" id="statsTable">
+                    <!-- Dynamically populated via JS -->
                 </div>
             </div>
         </section>
